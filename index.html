@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Miqueas — Service Desk · Data · Dev</title>
+<meta name="description" content="Portfolio profesional bilingüe de Miqueas. Service Desk Specialist JR, Análisis de Datos y Desarrollo. Córdoba, Argentina.">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg:#0a0a0f;--bg2:#111118;--bg3:#1a1a24;
+    --accent:#00e5ff;--accent2:#7c3aed;--accent3:#10b981;
+    --text:#f0f0f5;--muted:#8888aa;--border:#2a2a3a;
+    --card:#14141e;--font-head:'Sora',sans-serif;--font-mono:'Space Mono',monospace;
+  }
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--font-head);line-height:1.6;overflow-x:hidden}
+
+  .lang-bar{position:sticky;top:0;z-index:100;background:rgba(10,10,15,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:10px 32px;display:flex;justify-content:space-between;align-items:center}
+  .lang-bar .logo{font-family:var(--font-mono);font-size:13px;color:var(--accent);letter-spacing:2px}
+  .lang-btns{display:flex;gap:8px}
+  .lang-btn{padding:5px 16px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:var(--font-mono);font-size:12px;cursor:pointer;transition:all 0.2s}
+  .lang-btn.active{background:var(--accent);color:#000;border-color:var(--accent);font-weight:700}
+
+  section{padding:80px 32px;max-width:900px;margin:0 auto}
+  .section-tag{font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
+  h2{font-size:clamp(26px,4vw,38px);font-weight:700;line-height:1.2;margin-bottom:8px}
+  .divider{width:60px;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:2px;margin:16px 0 32px}
+
+  .hero{min-height:85vh;display:flex;flex-direction:column;justify-content:center;padding-top:40px;position:relative;overflow:hidden}
+  .hero::before{content:'';position:absolute;top:-100px;right:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(0,229,255,0.07) 0%,transparent 70%);pointer-events:none}
+  .hero::after{content:'';position:absolute;bottom:-80px;left:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(124,58,237,0.08) 0%,transparent 70%);pointer-events:none}
+  .available-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border:1px solid rgba(16,185,129,0.4);border-radius:20px;background:rgba(16,185,129,0.08);font-family:var(--font-mono);font-size:11px;color:var(--accent3);margin-bottom:24px}
+  .available-badge span.dot{width:7px;height:7px;background:var(--accent3);border-radius:50%;animation:blink 2s infinite}
+  @keyframes blink{0%,100%{opacity:1}50%{opacity:0.3}}
+  .hero h1{font-size:clamp(36px,6vw,64px);font-weight:700;line-height:1.1;margin-bottom:8px}
+  .hero h1 .name{color:var(--accent)}
+  .hero .role{font-family:var(--font-mono);font-size:clamp(13px,2vw,16px);color:var(--muted);margin-bottom:20px;letter-spacing:1px}
+  .hero .desc{font-size:clamp(15px,2vw,18px);color:rgba(240,240,245,0.75);max-width:600px;line-height:1.8;margin-bottom:32px}
+  .hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+  .btn-primary{padding:12px 28px;background:var(--accent);color:#000;border-radius:8px;font-family:var(--font-mono);font-size:13px;font-weight:700;text-decoration:none;border:none;cursor:pointer;transition:all 0.2s;letter-spacing:1px;display:inline-block}
+  .btn-primary:hover{background:#00c8e0;transform:translateY(-1px)}
+  .btn-outline{padding:12px 28px;background:transparent;color:var(--accent);border-radius:8px;font-family:var(--font-mono);font-size:13px;border:1px solid var(--accent);cursor:pointer;transition:all 0.2s;letter-spacing:1px;text-decoration:none;display:inline-block}
+  .btn-outline:hover{background:rgba(0,229,255,0.08)}
+  .hero-meta{display:flex;gap:32px;margin-top:40px;flex-wrap:wrap}
+  .meta-item{display:flex;flex-direction:column}
+  .meta-item .num{font-size:28px;font-weight:700;color:var(--accent);font-family:var(--font-mono)}
+  .meta-item .lbl{font-size:12px;color:var(--muted)}
+
+  .skills-section{background:var(--bg2)}
+  .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}
+  .skill-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;transition:border-color 0.2s,transform 0.2s}
+  .skill-card:hover{border-color:var(--accent);transform:translateY(-2px)}
+  .skill-card-icon{font-size:24px;margin-bottom:12px}
+  .skill-card h3{font-size:14px;font-weight:600;color:var(--accent);font-family:var(--font-mono);letter-spacing:1px;margin-bottom:10px;text-transform:uppercase}
+  .skill-tags{display:flex;flex-wrap:wrap;gap:6px}
+  .tag{padding:4px 10px;border-radius:6px;font-size:11px;font-family:var(--font-mono);font-weight:400}
+  .tag-cyan{background:rgba(0,229,255,0.1);color:var(--accent);border:1px solid rgba(0,229,255,0.2)}
+  .tag-purple{background:rgba(124,58,237,0.12);color:#a78bfa;border:1px solid rgba(124,58,237,0.25)}
+  .tag-green{background:rgba(16,185,129,0.1);color:#34d399;border:1px solid rgba(16,185,129,0.2)}
+  .tag-amber{background:rgba(245,158,11,0.1);color:#fbbf24;border:1px solid rgba(245,158,11,0.2)}
+  .tag-pink{background:rgba(236,72,153,0.1);color:#f472b6;border:1px solid rgba(236,72,153,0.2)}
+
+  .ai-strip{background:linear-gradient(135deg,rgba(124,58,237,0.12),rgba(0,229,255,0.08));border:1px solid rgba(124,58,237,0.3);border-radius:12px;padding:20px 24px;margin-top:16px}
+  .ai-strip h3{font-size:13px;color:#a78bfa;font-family:var(--font-mono);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+  .ai-tools{display:flex;flex-wrap:wrap;gap:8px}
+  .ai-tool{display:flex;align-items:center;gap:6px;padding:5px 12px;border-radius:20px;font-size:11px;font-family:var(--font-mono);border:1px solid rgba(167,139,250,0.3);background:rgba(167,139,250,0.08);color:#c4b5fd}
+  .ai-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
+
+  .project-section{background:var(--bg)}
+  .fixio-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden}
+  .fixio-header{background:linear-gradient(135deg,#0a0a1a,#14142a);padding:32px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px}
+  .fixio-logo{font-family:var(--font-mono);font-size:36px;font-weight:700;letter-spacing:-1px}
+  .fixio-logo span{color:var(--accent)}
+  .fixio-badge{padding:6px 14px;border-radius:20px;background:rgba(0,229,255,0.1);color:var(--accent);border:1px solid rgba(0,229,255,0.3);font-size:11px;font-family:var(--font-mono);white-space:nowrap}
+  .star-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border)}
+  .star-cell{background:var(--card);padding:24px;transition:background 0.2s}
+  .star-cell:hover{background:#1a1a26}
+  .star-letter{font-family:var(--font-mono);font-size:28px;font-weight:700;color:var(--accent2);opacity:0.6;margin-bottom:4px}
+  .star-title{font-size:11px;color:var(--accent);font-family:var(--font-mono);letter-spacing:2px;text-transform:uppercase;margin-bottom:8px}
+  .star-text{font-size:14px;color:rgba(240,240,245,0.8);line-height:1.7}
+  .fixio-tech{padding:24px;background:var(--bg2);border-top:1px solid var(--border)}
+  .fixio-tech h4{font-family:var(--font-mono);font-size:11px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-bottom:12px}
+  .tech-row{display:flex;flex-wrap:wrap;gap:8px}
+
+  .exp-section{background:var(--bg2)}
+  .exp-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin-bottom:16px}
+  .exp-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:16px}
+  .exp-role{font-size:18px;font-weight:600;color:var(--text)}
+  .exp-company{font-family:var(--font-mono);font-size:13px;color:var(--accent);margin-top:2px}
+  .exp-date{font-family:var(--font-mono);font-size:11px;color:var(--muted);padding:4px 12px;border:1px solid var(--border);border-radius:20px;white-space:nowrap}
+  .exp-clients{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+  .client-badge{padding:4px 12px;border-radius:6px;font-size:11px;font-family:var(--font-mono)}
+  .achievements{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .achievements li{font-size:14px;color:rgba(240,240,245,0.8);padding-left:20px;position:relative;line-height:1.6}
+  .achievements li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:12px;top:2px}
+
+  .es,.en{transition:opacity 0.15s}
+  body.show-en .es{display:none}
+  body.show-es .en{display:none}
+
+  .footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 32px;text-align:center}
+  .footer p{font-family:var(--font-mono);font-size:12px;color:var(--muted)}
+  .footer .contact{color:var(--accent);margin-top:12px;font-size:14px}
+  .footer .links{display:flex;gap:16px;justify-content:center;margin-top:16px;flex-wrap:wrap}
+  .footer .links a{font-family:var(--font-mono);font-size:12px;color:var(--muted);text-decoration:none;border:1px solid var(--border);padding:6px 16px;border-radius:20px;transition:all 0.2s}
+  .footer .links a:hover{border-color:var(--accent);color:var(--accent)}
+
+  @media(max-width:600px){
+    section{padding:60px 16px}
+    .star-grid{grid-template-columns:1fr}
+    .skills-grid{grid-template-columns:1fr}
+    .fixio-header{flex-direction:column}
+    .lang-bar{padding:10px 16px}
+  }
+</style>
+</head>
+<body class="show-es">
+
+<!-- NAV -->
+<div class="lang-bar">
+  <div class="logo">MQ.DEV</div>
+  <div class="lang-btns">
+    <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="available-badge">
+    <span class="dot"></span>
+    <span class="es">Disponible para nuevos desafíos</span>
+    <span class="en">Open to new opportunities</span>
+  </div>
+  <h1>Hola, soy<br><span class="name">Miqueas.</span></h1>
+  <p class="role">SERVICE DESK JR &nbsp;·&nbsp; DATA ANALYST &nbsp;·&nbsp; DEVELOPER</p>
+  <p class="desc es">
+    Especialista en Soporte Técnico Avanzado con enfoque en Análisis de Datos y Desarrollo. Combino la resolución de incidentes críticos con herramientas de automatización e IA para construir soluciones que reducen el tiempo de resolución y elevan la calidad del servicio.
+  </p>
+  <p class="desc en">
+    Advanced Technical Support specialist focused on Data Analytics and Development. I combine critical incident resolution with AI tools and automation to build solutions that reduce resolution time and elevate service quality.
+  </p>
+  <div class="hero-btns">
+    <a href="#fixio" class="btn-primary es">Ver FIXIO →</a>
+    <a href="#fixio" class="btn-primary en">View FIXIO →</a>
+    <a href="#contacto" class="btn-outline es">Contacto</a>
+    <a href="#contacto" class="btn-outline en">Contact</a>
+  </div>
+  <div class="hero-meta">
+    <div class="meta-item"><span class="num">2+</span><span class="lbl es">Años de experiencia</span><span class="lbl en">Years experience</span></div>
+    <div class="meta-item"><span class="num">2</span><span class="lbl es">Cuentas corporativas</span><span class="lbl en">Corporate accounts</span></div>
+    <div class="meta-item"><span class="num">1</span><span class="lbl es">Proyecto propio</span><span class="lbl en">Own project</span></div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<div class="skills-section">
+<section id="skills">
+  <p class="section-tag es">Stack técnico</p>
+  <p class="section-tag en">Technical stack</p>
+  <h2 class="es">Mis Habilidades</h2>
+  <h2 class="en">Technical Skills</h2>
+  <div class="divider"></div>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <div class="skill-card-icon">🖥️</div>
+      <h3 class="es">Soporte Técnico</h3>
+      <h3 class="en">Technical Support</h3>
+      <div class="skill-tags">
+        <span class="tag tag-cyan">SMAX</span>
+        <span class="tag tag-cyan">Jira Service Mgmt</span>
+        <span class="tag tag-cyan">ITIL</span>
+        <span class="tag tag-cyan">SLA Management</span>
+        <span class="tag tag-cyan">Escalamiento L2/L3</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">📊</div>
+      <h3 class="es">Análisis de Datos</h3>
+      <h3 class="en">Data Analysis</h3>
+      <div class="skill-tags">
+        <span class="tag tag-green">Kibana</span>
+        <span class="tag tag-green">Excel Avanzado</span>
+        <span class="tag tag-green">Log Analysis</span>
+        <span class="tag tag-green">KPIs &amp; Métricas</span>
+        <span class="tag tag-green">Dashboards</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">🗄️</div>
+      <h3 class="es">Desarrollo &amp; BBDD</h3>
+      <h3 class="en">Development &amp; DB</h3>
+      <div class="skill-tags">
+        <span class="tag tag-purple">SQL / PL-SQL</span>
+        <span class="tag tag-purple">Diseño Relacional</span>
+        <span class="tag tag-purple">Lógica de Aplicaciones</span>
+        <span class="tag tag-purple">Roles &amp; Permisos</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">⚡</div>
+      <h3 class="es">Automatización</h3>
+      <h3 class="en">Automation</h3>
+      <div class="skill-tags">
+        <span class="tag tag-amber">Power Automate</span>
+        <span class="tag tag-amber">Flows &amp; Triggers</span>
+        <span class="tag tag-amber">Integración de APIs</span>
+        <span class="tag tag-amber">Automatización IT</span>
+      </div>
+    </div>
+    <div class="skill-card">
+      <div class="skill-card-icon">🔒</div>
+      <h3 class="es">Infra &amp; Ciberseguridad</h3>
+      <h3 class="en">Infra &amp; Cybersecurity</h3>
+      <div class="skill-tags">
+        <span class="tag tag-pink">Fundamentos Infra IT</span>
+        <span class="tag tag-pink">Seguridad de Redes</span>
+        <span class="tag tag-pink">Córdoba Crea Futuro</span>
+        <span class="tag tag-pink">Capabilia</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="ai-strip">
+    <h3>🤖 &nbsp;AI Tools &amp; Productivity</h3>
+    <div class="ai-tools">
+      <div class="ai-tool"><span class="ai-dot" style="background:#ff6b35"></span>Claude</div>
+      <div class="ai-tool"><span class="ai-dot" style="background:#4285f4"></span>Gemini</div>
+      <div class="ai-tool"><span class="ai-dot" style="background:#10a37f"></span>ChatGPT</div>
+      <div class="ai-tool"><span class="ai-dot" style="background:#0078d4"></span>GitHub Copilot</div>
+      <div class="ai-tool"><span class="ai-dot" style="background:#742774"></span>Power Automate</div>
+      <div class="ai-tool" style="color:#e2e8f0;border-color:rgba(255,255,255,0.12);background:rgba(255,255,255,0.04)">
+        <span class="es" style="font-size:11px">Uso de IA para optimizar diagnóstico, documentación y flujos de trabajo</span>
+        <span class="en" style="font-size:11px">AI-driven diagnostics, documentation &amp; workflow optimization</span>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- PROJECT FIXIO -->
+<div class="project-section">
+<section id="fixio">
+  <p class="section-tag es">Proyecto estrella</p>
+  <p class="section-tag en">Featured project</p>
+  <h2>FIXIO</h2>
+  <div class="divider"></div>
+  <div class="fixio-card">
+    <div class="fixio-header">
+      <div>
+        <div class="fixio-logo">FIX<span>IO</span></div>
+        <p style="font-size:13px;color:var(--muted);margin-top:6px;font-family:var(--font-mono)" class="es">Plataforma de optimización para técnicos de soporte</p>
+        <p style="font-size:13px;color:var(--muted);margin-top:6px;font-family:var(--font-mono)" class="en">Workflow optimization platform for support technicians</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px;align-items:flex-end">
+        <span class="fixio-badge">SQL / PL-SQL</span>
+        <span class="fixio-badge" style="border-color:rgba(124,58,237,0.4);color:#a78bfa;background:rgba(124,58,237,0.1)">Diseño Relacional</span>
+      </div>
+    </div>
+    <div class="star-grid">
+      <div class="star-cell">
+        <div class="star-letter">S</div>
+        <div class="star-title es">Situación</div>
+        <div class="star-title en">Situation</div>
+        <p class="star-text es">Los técnicos de soporte perdían tiempo crítico navegando sistemas inconexos para resolver incidentes, sin una fuente centralizada de verdad técnica.</p>
+        <p class="star-text en">Support technicians were losing critical time navigating disconnected systems to resolve incidents, with no centralized source of technical truth.</p>
+      </div>
+      <div class="star-cell">
+        <div class="star-letter">T</div>
+        <div class="star-title es">Tarea</div>
+        <div class="star-title en">Task</div>
+        <p class="star-text es">Diseñar una solución que centralizara el conocimiento técnico y optimizara el proceso de escalamiento, impactando directamente el MTTR.</p>
+        <p class="star-text en">Design a solution to centralize technical knowledge and optimize the escalation process, directly impacting MTTR (Mean Time To Resolve).</p>
+      </div>
+      <div class="star-cell">
+        <div class="star-letter">A</div>
+        <div class="star-title es">Acción</div>
+        <div class="star-title en">Action</div>
+        <p class="star-text es">Diseñé la arquitectura relacional en SQL/PL-SQL, estructuré la lógica de navegación interna y apliqué principios de seguridad mediante roles y permisos de acceso por perfil de usuario.</p>
+        <p class="star-text en">Designed the relational architecture in SQL/PL-SQL, structured the internal navigation logic, and applied security principles through role-based access control per user profile.</p>
+      </div>
+      <div class="star-cell">
+        <div class="star-letter">R</div>
+        <div class="star-title es">Resultado</div>
+        <div class="star-title en">Result</div>
+        <p class="star-text es">Aplicación funcional con base de datos operativa que reduce el tiempo de búsqueda de información técnica y acelera el escalamiento correcto de incidentes, disminuyendo el MTTR.</p>
+        <p class="star-text en">Functional application with a live database that reduces technical information search time and accelerates correct incident escalation, reducing MTTR.</p>
+      </div>
+    </div>
+    <div class="fixio-tech">
+      <h4 class="es">Stack del proyecto</h4>
+      <h4 class="en">Project stack</h4>
+      <div class="tech-row">
+        <span class="tag tag-cyan">SQL</span>
+        <span class="tag tag-cyan">PL-SQL</span>
+        <span class="tag tag-purple">Diseño Relacional</span>
+        <span class="tag tag-purple">Roles &amp; Permisos</span>
+        <span class="tag tag-green">Lógica de Navegación</span>
+        <span class="tag tag-amber">RBAC Security</span>
+      </div>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- EXPERIENCE -->
+<div class="exp-section">
+<section id="experiencia">
+  <p class="section-tag es">Trayectoria</p>
+  <p class="section-tag en">Career</p>
+  <h2 class="es">Experiencia Laboral</h2>
+  <h2 class="en">Work Experience</h2>
+  <div class="divider"></div>
+  <div class="exp-card">
+    <div class="exp-header">
+      <div>
+        <div class="exp-role">Service Desk Specialist JR</div>
+        <div class="exp-company">Yel Solutions</div>
+      </div>
+      <div class="exp-date es">2023 — Presente</div>
+      <div class="exp-date en">2023 — Present</div>
+    </div>
+    <div class="exp-clients">
+      <span class="client-badge" style="background:rgba(0,229,255,0.1);color:var(--accent);border:1px solid rgba(0,229,255,0.2)">Claro</span>
+      <span class="client-badge" style="background:rgba(16,185,129,0.1);color:#34d399;border:1px solid rgba(16,185,129,0.2)">General Motors</span>
+      <span class="client-badge es" style="background:rgba(245,158,11,0.1);color:#fbbf24;border:1px solid rgba(245,158,11,0.2)">Cuentas Corporativas · SLA Crítico</span>
+      <span class="client-badge en" style="background:rgba(245,158,11,0.1);color:#fbbf24;border:1px solid rgba(245,158,11,0.2)">Corporate Accounts · Critical SLA</span>
+    </div>
+    <ul class="achievements">
+      <li class="es">Gestión de incidentes y requerimientos para cuentas corporativas de gran escala (Claro y General Motors) bajo SLAs críticos con SMAX y Jira Service Management.</li>
+      <li class="en">Incident and request management for large-scale corporate accounts (Claro &amp; General Motors) under critical SLAs using SMAX and Jira Service Management.</li>
+      <li class="es">Monitoreo proactivo de infraestructura mediante Kibana: análisis de logs en tiempo real para la detección temprana de fallas antes del impacto en el usuario final.</li>
+      <li class="en">Proactive infrastructure monitoring via Kibana: real-time log analysis for early fault detection before impacting end users.</li>
+      <li class="es">Implementación de flujos de automatización con Power Automate para reducir tareas manuales repetitivas y acelerar la respuesta ante incidentes.</li>
+      <li class="en">Implemented automation flows with Power Automate to reduce repetitive manual tasks and accelerate incident response time.</li>
+      <li class="es">Uso estratégico de herramientas de IA (Claude, ChatGPT, Gemini, Copilot) para optimizar diagnóstico técnico, generación de documentación y análisis de incidentes.</li>
+      <li class="en">Strategic use of AI tools (Claude, ChatGPT, Gemini, Copilot) to optimize technical diagnostics, documentation generation, and incident analysis.</li>
+      <li class="es">Escalamiento y coordinación con equipos de nivel 2 y 3, asegurando la continuidad del servicio y el cumplimiento de los SLAs.</li>
+      <li class="en">Escalation and coordination with L2/L3 teams, ensuring service continuity and SLA compliance.</li>
+    </ul>
+  </div>
+</section>
+</div>
+
+<!-- FOOTER / CONTACT -->
+<div class="footer" id="contacto">
+  <p class="es">Miqueas &nbsp;·&nbsp; Service Desk JR · Data &amp; Dev · Córdoba, Argentina</p>
+  <p class="en">Miqueas &nbsp;·&nbsp; Service Desk JR · Data &amp; Dev · Córdoba, Argentina</p>
+  <p class="contact es">📬 &nbsp;Disponible para proyectos y oportunidades internacionales</p>
+  <p class="contact en">📬 &nbsp;Available for projects and international opportunities</p>
+  <div class="links">
+    <a href="https://github.com/miqueas-prog" target="_blank">GitHub</a>
+    <a href="https://www.linkedin.com/in/miqueas-heredia-60b158146/" target="_blank">LinkedIn</a>
+    <a href="mailto:mikeasheredia33@gmail.com">mikeasheredia33@gmail.com</a>
+    <a href="tel:+543518587200">+54 351 858-7200</a>
+  </div>
+  <p style="margin-top:24px;font-size:10px;color:#444">Built with ♥ · Córdoba 2025</p>
+</div>
+
+<script>
+function setLang(lang){
+  document.body.classList.remove('show-es','show-en');
+  document.body.classList.add('show-'+lang);
+  document.getElementById('btn-es').classList.toggle('active',lang==='es');
+  document.getElementById('btn-en').classList.toggle('active',lang==='en');
+  localStorage.setItem('portfolio-lang',lang);
+}
+// Restore last lang
+var saved=localStorage.getItem('portfolio-lang');
+if(saved) setLang(saved); else setLang('es');
+</script>
+</body>
+</html>
