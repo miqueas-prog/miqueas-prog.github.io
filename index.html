@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Miqueas — Service Desk · Data · Dev</title>
-<meta name="description" content="Portfolio profesional bilingüe de Miqueas. Service Desk Specialist JR, Análisis de Datos y Desarrollo. Córdoba, Argentina.">
+<title>Miqueas Heredia — Service Desk · Data · Dev</title>
+<meta name="description" content="Portfolio profesional bilingüe de Miqueas Heredia. Service Desk Specialist JR, Análisis de Datos y Desarrollo. Córdoba, Argentina.">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Sora:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
@@ -96,6 +96,17 @@
   .achievements li{font-size:14px;color:rgba(240,240,245,0.8);padding-left:20px;position:relative;line-height:1.6}
   .achievements li::before{content:'▸';position:absolute;left:0;color:var(--accent);font-size:12px;top:2px}
 
+  .edu-section{background:var(--bg)}
+  .edu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+  .edu-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:18px;transition:border-color 0.2s}
+  .edu-card:hover{border-color:var(--accent2)}
+  .edu-icon{font-size:20px;margin-bottom:8px}
+  .edu-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px}
+  .edu-inst{font-family:var(--font-mono);font-size:11px;color:var(--accent);margin-bottom:6px}
+  .edu-status{display:inline-block;padding:2px 10px;border-radius:20px;font-size:10px;font-family:var(--font-mono)}
+  .status-active{background:rgba(16,185,129,0.1);color:#34d399;border:1px solid rgba(16,185,129,0.2)}
+  .status-done{background:rgba(136,136,170,0.1);color:var(--muted);border:1px solid var(--border)}
+
   .es,.en{transition:opacity 0.15s}
   body.show-en .es{display:none}
   body.show-es .en{display:none}
@@ -113,12 +124,12 @@
     .skills-grid{grid-template-columns:1fr}
     .fixio-header{flex-direction:column}
     .lang-bar{padding:10px 16px}
+    .edu-grid{grid-template-columns:1fr 1fr}
   }
 </style>
 </head>
 <body class="show-es">
 
-<!-- NAV -->
 <div class="lang-bar">
   <div class="logo">MQ.DEV</div>
   <div class="lang-btns">
@@ -137,10 +148,10 @@
   <h1>Hola, soy<br><span class="name">Miqueas.</span></h1>
   <p class="role">SERVICE DESK JR &nbsp;·&nbsp; DATA ANALYST &nbsp;·&nbsp; DEVELOPER</p>
   <p class="desc es">
-    Especialista en Soporte Técnico Avanzado con enfoque en Análisis de Datos y Desarrollo. Combino la resolución de incidentes críticos con herramientas de automatización e IA para construir soluciones que reducen el tiempo de resolución y elevan la calidad del servicio.
+    Especialista en Soporte Técnico y Análisis de Datos con experiencia en entornos críticos IT. Combino la resolución de incidentes en tiempo real con herramientas de automatización e IA para construir soluciones que reducen el MTTR y elevan la calidad del servicio.
   </p>
   <p class="desc en">
-    Advanced Technical Support specialist focused on Data Analytics and Development. I combine critical incident resolution with AI tools and automation to build solutions that reduce resolution time and elevate service quality.
+    Technical Support and Data Analytics specialist with experience in critical IT environments. I combine real-time incident resolution with AI tools and automation to build solutions that reduce MTTR and elevate service quality.
   </p>
   <div class="hero-btns">
     <a href="#fixio" class="btn-primary es">Ver FIXIO →</a>
@@ -149,8 +160,9 @@
     <a href="#contacto" class="btn-outline en">Contact</a>
   </div>
   <div class="hero-meta">
-    <div class="meta-item"><span class="num">2+</span><span class="lbl es">Años de experiencia</span><span class="lbl en">Years experience</span></div>
-    <div class="meta-item"><span class="num">2</span><span class="lbl es">Cuentas corporativas</span><span class="lbl en">Corporate accounts</span></div>
+    <div class="meta-item"><span class="num">3+</span><span class="lbl es">Años en IT</span><span class="lbl en">Years in IT</span></div>
+    <div class="meta-item"><span class="num">2</span><span class="lbl es">Empresas</span><span class="lbl en">Companies</span></div>
+    <div class="meta-item"><span class="num">3</span><span class="lbl es">Cuentas corporativas</span><span class="lbl en">Corporate accounts</span></div>
     <div class="meta-item"><span class="num">1</span><span class="lbl es">Proyecto propio</span><span class="lbl en">Own project</span></div>
   </div>
 </section>
@@ -170,10 +182,13 @@
       <h3 class="en">Technical Support</h3>
       <div class="skill-tags">
         <span class="tag tag-cyan">SMAX</span>
-        <span class="tag tag-cyan">Jira Service Mgmt</span>
-        <span class="tag tag-cyan">ITIL</span>
+        <span class="tag tag-cyan">Jira</span>
+        <span class="tag tag-cyan">Remedy</span>
+        <span class="tag tag-cyan">Confluence</span>
+        <span class="tag tag-cyan">Stealth</span>
         <span class="tag tag-cyan">SLA Management</span>
         <span class="tag tag-cyan">Escalamiento L2/L3</span>
+        <span class="tag tag-cyan">GSOC</span>
       </div>
     </div>
     <div class="skill-card">
@@ -182,6 +197,7 @@
       <h3 class="en">Data Analysis</h3>
       <div class="skill-tags">
         <span class="tag tag-green">Kibana</span>
+        <span class="tag tag-green">APIs Monitoring</span>
         <span class="tag tag-green">Excel Avanzado</span>
         <span class="tag tag-green">Log Analysis</span>
         <span class="tag tag-green">KPIs &amp; Métricas</span>
@@ -194,6 +210,7 @@
       <h3 class="en">Development &amp; DB</h3>
       <div class="skill-tags">
         <span class="tag tag-purple">SQL / PL-SQL</span>
+        <span class="tag tag-purple">SQL Server</span>
         <span class="tag tag-purple">Diseño Relacional</span>
         <span class="tag tag-purple">Lógica de Aplicaciones</span>
         <span class="tag tag-purple">Roles &amp; Permisos</span>
@@ -205,6 +222,7 @@
       <h3 class="en">Automation</h3>
       <div class="skill-tags">
         <span class="tag tag-amber">Power Automate</span>
+        <span class="tag tag-amber">Microsoft 365</span>
         <span class="tag tag-amber">Flows &amp; Triggers</span>
         <span class="tag tag-amber">Integración de APIs</span>
         <span class="tag tag-amber">Automatización IT</span>
@@ -217,8 +235,8 @@
       <div class="skill-tags">
         <span class="tag tag-pink">Fundamentos Infra IT</span>
         <span class="tag tag-pink">Seguridad de Redes</span>
+        <span class="tag tag-pink">WiFi / LAN</span>
         <span class="tag tag-pink">Córdoba Crea Futuro</span>
-        <span class="tag tag-pink">Capabilia</span>
       </div>
     </div>
   </div>
@@ -313,41 +331,117 @@
   <h2 class="es">Experiencia Laboral</h2>
   <h2 class="en">Work Experience</h2>
   <div class="divider"></div>
+
+  <!-- YEL SOLUTIONS -->
   <div class="exp-card">
     <div class="exp-header">
       <div>
         <div class="exp-role">Service Desk Specialist JR</div>
         <div class="exp-company">Yel Solutions</div>
       </div>
-      <div class="exp-date es">2023 — Presente</div>
-      <div class="exp-date en">2023 — Present</div>
+      <div class="exp-date es">Feb 2026 — Presente</div>
+      <div class="exp-date en">Feb 2026 — Present</div>
     </div>
     <div class="exp-clients">
       <span class="client-badge" style="background:rgba(0,229,255,0.1);color:var(--accent);border:1px solid rgba(0,229,255,0.2)">Claro</span>
       <span class="client-badge" style="background:rgba(16,185,129,0.1);color:#34d399;border:1px solid rgba(16,185,129,0.2)">General Motors</span>
-      <span class="client-badge es" style="background:rgba(245,158,11,0.1);color:#fbbf24;border:1px solid rgba(245,158,11,0.2)">Cuentas Corporativas · SLA Crítico</span>
-      <span class="client-badge en" style="background:rgba(245,158,11,0.1);color:#fbbf24;border:1px solid rgba(245,158,11,0.2)">Corporate Accounts · Critical SLA</span>
+      <span class="client-badge es" style="background:rgba(245,158,11,0.1);color:#fbbf24;border:1px solid rgba(245,158,11,0.2)">SLA Crítico · GSOC</span>
+      <span class="client-badge en" style="background:rgba(245,158,11,0.1);color:#fbbf24;border:1px solid rgba(245,158,11,0.2)">Critical SLA · GSOC</span>
     </div>
     <ul class="achievements">
-      <li class="es">Gestión de incidentes y requerimientos para cuentas corporativas de gran escala (Claro y General Motors) bajo SLAs críticos con SMAX y Jira Service Management.</li>
-      <li class="en">Incident and request management for large-scale corporate accounts (Claro &amp; General Motors) under critical SLAs using SMAX and Jira Service Management.</li>
-      <li class="es">Monitoreo proactivo de infraestructura mediante Kibana: análisis de logs en tiempo real para la detección temprana de fallas antes del impacto en el usuario final.</li>
-      <li class="en">Proactive infrastructure monitoring via Kibana: real-time log analysis for early fault detection before impacting end users.</li>
-      <li class="es">Implementación de flujos de automatización con Power Automate para reducir tareas manuales repetitivas y acelerar la respuesta ante incidentes.</li>
-      <li class="en">Implemented automation flows with Power Automate to reduce repetitive manual tasks and accelerate incident response time.</li>
+      <li class="es">Gestión de tickets e incidentes para cuentas corporativas de gran escala bajo SLAs críticos con SMAX, Jira, Confluence y Remedy.</li>
+      <li class="en">Ticket and incident management for large-scale corporate accounts under critical SLAs using SMAX, Jira, Confluence, and Remedy.</li>
+      <li class="es">Control y monitoreo de APIs mediante Kibana: análisis de logs en tiempo real para la detección temprana de fallas antes del impacto en el usuario final.</li>
+      <li class="en">API control and monitoring via Kibana: real-time log analysis for early fault detection before impacting end users.</li>
+      <li class="es">Coordinación constante con el GSOC (Global Security Operations Center) para el reporte y escalamiento de eventos de red críticos.</li>
+      <li class="en">Ongoing coordination with the GSOC (Global Security Operations Center) for reporting and escalation of critical network events.</li>
+      <li class="es">Implementación de flujos de automatización con Power Automate y Microsoft 365 para reducir tareas manuales repetitivas y acelerar la respuesta ante incidentes.</li>
+      <li class="en">Implemented automation flows with Power Automate and Microsoft 365 to reduce repetitive manual tasks and accelerate incident response.</li>
       <li class="es">Uso estratégico de herramientas de IA (Claude, ChatGPT, Gemini, Copilot) para optimizar diagnóstico técnico, generación de documentación y análisis de incidentes.</li>
-      <li class="en">Strategic use of AI tools (Claude, ChatGPT, Gemini, Copilot) to optimize technical diagnostics, documentation generation, and incident analysis.</li>
-      <li class="es">Escalamiento y coordinación con equipos de nivel 2 y 3, asegurando la continuidad del servicio y el cumplimiento de los SLAs.</li>
-      <li class="en">Escalation and coordination with L2/L3 teams, ensuring service continuity and SLA compliance.</li>
+      <li class="en">Strategic use of AI tools (Claude, ChatGPT, Gemini, Copilot) to optimize technical diagnostics, documentation, and incident analysis.</li>
+      <li class="es">Procesamiento de datos operativos con Excel avanzado y PL/SQL para la generación de métricas e informes de gestión.</li>
+      <li class="en">Operational data processing with advanced Excel and PL/SQL for KPI generation and management reports.</li>
+    </ul>
+  </div>
+
+  <!-- AEGIS -->
+  <div class="exp-card">
+    <div class="exp-header">
+      <div>
+        <div class="exp-role es">Soporte Técnico N1 y N2</div>
+        <div class="exp-role en">Technical Support L1 &amp; L2</div>
+        <div class="exp-company">Aegis S.A.</div>
+      </div>
+      <div class="exp-date">Abr 2022 — Oct 2023</div>
+    </div>
+    <div class="exp-clients">
+      <span class="client-badge" style="background:rgba(0,229,255,0.1);color:var(--accent);border:1px solid rgba(0,229,255,0.2)">Claro</span>
+      <span class="client-badge es" style="background:rgba(124,58,237,0.1);color:#a78bfa;border:1px solid rgba(124,58,237,0.2)">Soporte Remoto &amp; Presencial</span>
+      <span class="client-badge en" style="background:rgba(124,58,237,0.1);color:#a78bfa;border:1px solid rgba(124,58,237,0.2)">Remote &amp; On-site Support</span>
+    </div>
+    <ul class="achievements">
+      <li class="es">Diagnóstico y resolución de incidencias de hardware y software, optimizando los tiempos de respuesta para clientes corporativos Claro.</li>
+      <li class="en">Hardware and software incident diagnosis and resolution, optimizing response times for Claro corporate clients.</li>
+      <li class="es">Configuración de conectividad WiFi/LAN e instalación y mantenimiento de periféricos e infraestructura de red.</li>
+      <li class="en">WiFi/LAN connectivity configuration and installation and maintenance of peripherals and network infrastructure.</li>
+      <li class="es">Soporte multicanal (remoto y presencial) con foco en la resolución al primer contacto (FCR).</li>
+      <li class="en">Multichannel support (remote and on-site) focused on first-contact resolution (FCR).</li>
+      <li class="es">Gestión de activos: mantenimiento preventivo de equipos y control de stock técnico.</li>
+      <li class="en">Asset management: preventive equipment maintenance and technical stock control.</li>
     </ul>
   </div>
 </section>
 </div>
 
-<!-- FOOTER / CONTACT -->
+<!-- EDUCACION -->
+<div class="edu-section">
+<section id="educacion">
+  <p class="section-tag es">Formación</p>
+  <p class="section-tag en">Education</p>
+  <h2 class="es">Educación</h2>
+  <h2 class="en">Education</h2>
+  <div class="divider"></div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-icon">🎓</div>
+      <div class="edu-title es">Analista en Sistemas</div>
+      <div class="edu-title en">Systems Analyst</div>
+      <div class="edu-inst">UTN FRC</div>
+      <span class="edu-status status-active es">En curso</span>
+      <span class="edu-status status-active en">In progress</span>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon">🗄️</div>
+      <div class="edu-title es">Bases de Datos / SQL</div>
+      <div class="edu-title en">Databases / SQL</div>
+      <div class="edu-inst">Educación IT · Telecom</div>
+      <span class="edu-status status-active es">En curso</span>
+      <span class="edu-status status-active en">In progress</span>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon">🔒</div>
+      <div class="edu-title es">Ciberseguridad</div>
+      <div class="edu-title en">Cybersecurity</div>
+      <div class="edu-inst">Córdoba Crea Futuro · Capabilia</div>
+      <span class="edu-status status-active es">En curso</span>
+      <span class="edu-status status-active en">In progress</span>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon">📋</div>
+      <div class="edu-title es">Bachiller en Gestión Administrativa</div>
+      <div class="edu-title en">Administrative Management</div>
+      <div class="edu-inst">Justo José de Urquiza</div>
+      <span class="edu-status status-done es">Completado</span>
+      <span class="edu-status status-done en">Completed</span>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- FOOTER -->
 <div class="footer" id="contacto">
-  <p class="es">Miqueas &nbsp;·&nbsp; Service Desk JR · Data &amp; Dev · Córdoba, Argentina</p>
-  <p class="en">Miqueas &nbsp;·&nbsp; Service Desk JR · Data &amp; Dev · Córdoba, Argentina</p>
+  <p class="es">Miqueas Heredia &nbsp;·&nbsp; Córdoba, Argentina</p>
+  <p class="en">Miqueas Heredia &nbsp;·&nbsp; Córdoba, Argentina</p>
   <p class="contact es">📬 &nbsp;Disponible para proyectos y oportunidades internacionales</p>
   <p class="contact en">📬 &nbsp;Available for projects and international opportunities</p>
   <div class="links">
@@ -367,7 +461,6 @@ function setLang(lang){
   document.getElementById('btn-en').classList.toggle('active',lang==='en');
   localStorage.setItem('portfolio-lang',lang);
 }
-// Restore last lang
 var saved=localStorage.getItem('portfolio-lang');
 if(saved) setLang(saved); else setLang('es');
 </script>
