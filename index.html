@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -19,9 +20,11 @@ body{background:var(--bg);color:var(--text);font-family:var(--font-head);line-he
 
 .lang-bar{position:sticky;top:0;z-index:100;background:rgba(10,10,15,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:10px 32px;display:flex;justify-content:space-between;align-items:center}
 .lang-bar .logo{font-family:var(--font-mono);font-size:13px;color:var(--accent);letter-spacing:2px}
-.lang-btns{display:flex;gap:8px}
+.lang-btns{display:flex;gap:8px;align-items:center}
 .lang-btn{padding:5px 16px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:var(--font-mono);font-size:12px;cursor:pointer;transition:all 0.2s}
 .lang-btn.active{background:var(--accent);color:#000;border-color:var(--accent);font-weight:700}
+.cv-btn-nav{padding:5px 14px;border-radius:20px;border:1px solid rgba(16,185,129,0.4);background:rgba(16,185,129,0.08);color:var(--accent3);font-family:var(--font-mono);font-size:11px;cursor:pointer;transition:all 0.2s;text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+.cv-btn-nav:hover{background:rgba(16,185,129,0.15);border-color:var(--accent3)}
 
 section{padding:80px 32px;max-width:900px;margin:0 auto}
 .section-tag{font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
@@ -43,6 +46,8 @@ h2{font-size:clamp(26px,4vw,38px);font-weight:700;line-height:1.2;margin-bottom:
 .btn-primary:hover{background:#00c8e0;transform:translateY(-1px)}
 .btn-outline{padding:12px 28px;background:transparent;color:var(--accent);border-radius:8px;font-family:var(--font-mono);font-size:13px;border:1px solid var(--accent);cursor:pointer;transition:all 0.2s;letter-spacing:1px;text-decoration:none;display:inline-block}
 .btn-outline:hover{background:rgba(0,229,255,0.08)}
+.btn-cv{padding:12px 28px;background:linear-gradient(135deg,rgba(16,185,129,0.15),rgba(16,185,129,0.08));color:var(--accent3);border-radius:8px;font-family:var(--font-mono);font-size:13px;border:1px solid rgba(16,185,129,0.4);cursor:pointer;transition:all 0.2s;letter-spacing:1px;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn-cv:hover{background:rgba(16,185,129,0.2);transform:translateY(-1px);box-shadow:0 0 20px rgba(16,185,129,0.2)}
 .hero-meta{display:flex;gap:32px;margin-top:40px;flex-wrap:wrap}
 .meta-item{display:flex;flex-direction:column}
 .meta-item .num{font-size:28px;font-weight:700;color:var(--accent);font-family:var(--font-mono)}
@@ -61,6 +66,7 @@ h2{font-size:clamp(26px,4vw,38px);font-weight:700;line-height:1.2;margin-bottom:
 .tag-green{background:rgba(16,185,129,0.1);color:#34d399;border:1px solid rgba(16,185,129,0.2)}
 .tag-amber{background:rgba(245,158,11,0.1);color:#fbbf24;border:1px solid rgba(245,158,11,0.2)}
 .tag-pink{background:rgba(236,72,153,0.1);color:#f472b6;border:1px solid rgba(236,72,153,0.2)}
+.tag-blue{background:rgba(59,130,246,0.1);color:#93c5fd;border:1px solid rgba(59,130,246,0.2)}
 
 .ai-strip{background:linear-gradient(135deg,rgba(124,58,237,0.12),rgba(0,229,255,0.08));border:1px solid rgba(124,58,237,0.3);border-radius:12px;padding:20px 24px;margin-top:16px}
 .ai-strip h3{font-size:13px;color:#a78bfa;font-family:var(--font-mono);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
@@ -69,7 +75,24 @@ h2{font-size:clamp(26px,4vw,38px);font-weight:700;line-height:1.2;margin-bottom:
 .ai-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
 .ai-desc{font-size:11px;color:rgba(196,181,253,0.6);font-family:var(--font-mono);margin-top:10px;line-height:1.6}
 
-.project-section{background:var(--bg)}
+/* PROJECTS GRID */
+.projects-section{background:var(--bg)}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.proj-card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:26px;transition:all 0.3s;position:relative;overflow:hidden}
+.proj-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--proj-color1,var(--accent)),var(--proj-color2,var(--accent2)))}
+.proj-card:hover{transform:translateY(-4px);border-color:rgba(0,229,255,0.2);box-shadow:0 12px 40px rgba(0,0,0,0.4)}
+.proj-icon{font-size:32px;margin-bottom:14px}
+.proj-title{font-size:17px;font-weight:700;color:var(--text);margin-bottom:4px}
+.proj-subtitle{font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:1px;margin-bottom:4px}
+.proj-date{font-family:var(--font-mono);font-size:10px;color:var(--muted);margin-bottom:14px}
+.proj-desc{font-size:13px;color:rgba(240,240,245,0.72);line-height:1.75;margin-bottom:16px}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px}
+.proj-future{border:1px solid rgba(245,158,11,0.3);background:linear-gradient(135deg,rgba(245,158,11,0.06),rgba(124,58,237,0.06))}
+.proj-future::before{background:linear-gradient(90deg,#f59e0b,#7c3aed)}
+.future-badge{display:inline-flex;align-items:center;gap:6px;padding:3px 12px;border-radius:20px;background:rgba(245,158,11,0.1);border:1px solid rgba(245,158,11,0.3);color:#fbbf24;font-family:var(--font-mono);font-size:10px;margin-bottom:14px}
+
+/* FIXIO */
+.project-section{background:var(--bg3)}
 .fixio-card{background:var(--card);border:1px solid var(--border);border-radius:16px;overflow:hidden}
 .fixio-header{background:linear-gradient(135deg,#0a0a1a,#14142a);padding:32px;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:16px}
 .fixio-logo{font-family:var(--font-mono);font-size:36px;font-weight:700;letter-spacing:-1px}
@@ -86,7 +109,8 @@ h2{font-size:clamp(26px,4vw,38px);font-weight:700;line-height:1.2;margin-bottom:
 .tech-row{display:flex;flex-wrap:wrap;gap:8px}
 
 .exp-section{background:var(--bg2)}
-.exp-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin-bottom:16px}
+.exp-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:28px;margin-bottom:16px;position:relative;overflow:hidden}
+.exp-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:linear-gradient(180deg,var(--accent),var(--accent2))}
 .exp-header{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;margin-bottom:16px}
 .exp-role{font-size:18px;font-weight:600;color:var(--text)}
 .exp-company{font-family:var(--font-mono);font-size:13px;color:var(--accent);margin-top:2px}
@@ -118,6 +142,8 @@ body.show-es .en{display:none}
 .footer .links{display:flex;gap:16px;justify-content:center;margin-top:16px;flex-wrap:wrap}
 .footer .links a{font-family:var(--font-mono);font-size:12px;color:var(--muted);text-decoration:none;border:1px solid var(--border);padding:6px 16px;border-radius:20px;transition:all 0.2s}
 .footer .links a:hover{border-color:var(--accent);color:var(--accent)}
+.footer .cv-download{border-color:rgba(16,185,129,0.4);color:var(--accent3)}
+.footer .cv-download:hover{border-color:var(--accent3);background:rgba(16,185,129,0.08)}
 
 @media(max-width:600px){
   section{padding:60px 16px}
@@ -126,6 +152,8 @@ body.show-es .en{display:none}
   .fixio-header{flex-direction:column}
   .lang-bar{padding:10px 16px}
   .edu-grid{grid-template-columns:1fr 1fr}
+  .projects-grid{grid-template-columns:1fr}
+  .cv-btn-nav{display:none}
 }
 </style>
 </head>
@@ -134,6 +162,7 @@ body.show-es .en{display:none}
 <div class="lang-bar">
   <div class="logo">MQ.DEV</div>
   <div class="lang-btns">
+    <a href="MH_cv_actualizado.pdf" download class="cv-btn-nav">⬇ CV</a>
     <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
     <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
   </div>
@@ -147,20 +176,22 @@ body.show-es .en{display:none}
     <span class="en">Open to new opportunities</span>
   </div>
   <h1>Hola, soy<br><span class="name">Miqueas Heredia.</span></h1>
-  <p class="role">DATA ANALYST JR &nbsp;·&nbsp; SERVICE DESK JR  &nbsp;·&nbsp; DEVELOPER</p>
+  <p class="role">DATA ANALYST JR &nbsp;·&nbsp; SERVICE DESK JR &nbsp;·&nbsp; DEVELOPER</p>
   <p class="desc es">Especialista en Soporte Técnico y Análisis de Datos con experiencia en entornos críticos IT. Combino la resolución de incidentes en tiempo real con herramientas de automatización e IA para construir soluciones que reducen el MTTR y elevan la calidad del servicio.</p>
   <p class="desc en">Technical Support and Data Analytics specialist with experience in critical IT environments. I combine real-time incident resolution with AI tools and automation to build solutions that reduce MTTR and elevate service quality.</p>
   <div class="hero-btns">
-    <a href="#fixio" class="btn-primary es">Ver FIXIO →</a>
-    <a href="#fixio" class="btn-primary en">View FIXIO →</a>
+    <a href="#proyectos" class="btn-primary es">Ver Proyectos →</a>
+    <a href="#proyectos" class="btn-primary en">View Projects →</a>
     <a href="#contacto" class="btn-outline es">Contacto</a>
     <a href="#contacto" class="btn-outline en">Contact</a>
+    <a href="MH_cv_actualizado.pdf" download class="btn-cv es">⬇ Descargar CV</a>
+    <a href="MH_cv_actualizado.pdf" download class="btn-cv en">⬇ Download CV</a>
   </div>
   <div class="hero-meta">
     <div class="meta-item"><span class="num">3+</span><span class="lbl es">Años en IT</span><span class="lbl en">Years in IT</span></div>
     <div class="meta-item"><span class="num">2</span><span class="lbl es">Empresas</span><span class="lbl en">Companies</span></div>
     <div class="meta-item"><span class="num">3</span><span class="lbl es">Cuentas corporativas</span><span class="lbl en">Corporate accounts</span></div>
-    <div class="meta-item"><span class="num">1</span><span class="lbl es">Proyecto propio</span><span class="lbl en">Own project</span></div>
+    <div class="meta-item"><span class="num">3</span><span class="lbl es">Proyectos</span><span class="lbl en">Projects</span></div>
   </div>
 </section>
 
@@ -173,81 +204,46 @@ body.show-es .en{display:none}
   <h2 class="en">My Technical Skills</h2>
   <div class="divider"></div>
   <div class="skills-grid">
-
     <div class="skill-card">
       <div class="skill-card-icon">🖥️</div>
       <h3 class="es">Soporte Técnico</h3>
       <h3 class="en">Technical Support</h3>
       <div class="skill-tags">
-        <span class="tag tag-cyan">SMAX</span>
-        <span class="tag tag-cyan">Jira</span>
-        <span class="tag tag-cyan">Remedy</span>
-        <span class="tag tag-cyan">Confluence</span>
-        <span class="tag tag-cyan">Stealth</span>
-        <span class="tag tag-cyan">SLA Management</span>
-        <span class="tag tag-cyan">Escalamiento L2/L3</span>
-        <span class="tag tag-cyan">GSOC</span>
+        <span class="tag tag-cyan">SMAX</span><span class="tag tag-cyan">Jira</span><span class="tag tag-cyan">Remedy</span><span class="tag tag-cyan">Confluence</span><span class="tag tag-cyan">Stealth</span><span class="tag tag-cyan">SLA Management</span><span class="tag tag-cyan">Escalamiento L2/L3</span><span class="tag tag-cyan">GSOC</span>
       </div>
     </div>
-
     <div class="skill-card">
       <div class="skill-card-icon">📊</div>
       <h3 class="es">Análisis de Datos</h3>
       <h3 class="en">Data Analysis</h3>
       <div class="skill-tags">
-        <span class="tag tag-green">Kibana</span>
-        <span class="tag tag-green">APIs Monitoring</span>
-        <span class="tag tag-green">Excel Avanzado</span>
-        <span class="tag tag-green">Log Analysis</span>
-        <span class="tag tag-green">KPIs &amp; Métricas</span>
-        <span class="tag tag-green">Dashboards</span>
-        <span class="tag tag-green">PL-SQL</span>
-        <span class="tag tag-green">SQL Server</span>
+        <span class="tag tag-green">Kibana</span><span class="tag tag-green">APIs Monitoring</span><span class="tag tag-green">Excel Avanzado</span><span class="tag tag-green">Log Analysis</span><span class="tag tag-green">KPIs &amp; Métricas</span><span class="tag tag-green">Dashboards</span><span class="tag tag-green">PL-SQL</span><span class="tag tag-green">SQL Server</span>
       </div>
     </div>
-
     <div class="skill-card">
       <div class="skill-card-icon">🗄️</div>
       <h3 class="es">Desarrollo &amp; Apps</h3>
       <h3 class="en">Development &amp; Apps</h3>
       <div class="skill-tags">
-        <span class="tag tag-purple">Diseño Relacional</span>
-        <span class="tag tag-purple">Lógica de Aplicaciones</span>
-        <span class="tag tag-purple">Roles &amp; Permisos</span>
-        <span class="tag tag-purple">DreamFlow</span>
-        <span class="tag tag-purple">FlutterFlow</span>
-        <span class="tag tag-purple">Firebase</span>
-        <span class="tag tag-purple">Firestore</span>
-        <span class="tag tag-purple">Cloudflare</span>
-        <span class="tag tag-purple">Vibe Coding</span>
+        <span class="tag tag-purple">Diseño Relacional</span><span class="tag tag-purple">Lógica de Aplicaciones</span><span class="tag tag-purple">Roles &amp; Permisos</span><span class="tag tag-purple">DreamFlow</span><span class="tag tag-purple">FlutterFlow</span><span class="tag tag-purple">Firebase</span><span class="tag tag-purple">Firestore</span><span class="tag tag-purple">Cloudflare</span><span class="tag tag-purple">Vibe Coding</span>
       </div>
     </div>
-
     <div class="skill-card">
       <div class="skill-card-icon">⚡</div>
       <h3 class="es">Automatización</h3>
       <h3 class="en">Automation</h3>
       <div class="skill-tags">
-        <span class="tag tag-amber">Power Automate</span>
-        <span class="tag tag-amber">Microsoft 365</span>
-        <span class="tag tag-amber">Flows &amp; Triggers</span>
-        <span class="tag tag-amber">Integración de APIs</span>
-        <span class="tag tag-amber">Automatización IT</span>
+        <span class="tag tag-amber">Power Automate</span><span class="tag tag-amber">Power Apps</span><span class="tag tag-amber">Microsoft 365</span><span class="tag tag-amber">Flows &amp; Triggers</span><span class="tag tag-amber">Integración de APIs</span><span class="tag tag-amber">Automatización IT</span>
       </div>
     </div>
-
     <div class="skill-card">
       <div class="skill-card-icon">🔒</div>
       <h3 class="es">Infra &amp; Ciberseguridad</h3>
       <h3 class="en">Infra &amp; Cybersecurity</h3>
       <div class="skill-tags">
-        <span class="tag tag-pink">Fundamentos Infra IT</span>
-        <span class="tag tag-pink">Seguridad de Redes</span>
-        <span class="tag tag-pink">WiFi / LAN</span>
-        <span class="tag tag-pink">Educación IT</span>
+        <span class="tag tag-pink">Fundamentos Infra IT</span><span class="tag tag-pink">Seguridad de Redes</span><span class="tag tag-pink">WiFi / LAN</span><span class="tag tag-pink">Educación IT</span>
       </div>
     </div>
-
   </div>
 
   <div class="ai-strip">
@@ -266,12 +262,70 @@ body.show-es .en{display:none}
 </section>
 </div>
 
-<!-- PROJECT FIXIO -->
+<!-- PROJECTS -->
+<div class="projects-section">
+<section id="proyectos">
+  <p class="section-tag es">Portfolio</p>
+  <p class="section-tag en">Portfolio</p>
+  <h2 class="es">Proyectos</h2>
+  <h2 class="en">Projects</h2>
+  <div class="divider"></div>
+  <div class="projects-grid">
+
+    <!-- PATITAS -->
+    <div class="proj-card" style="--proj-color1:#f472b6;--proj-color2:#a78bfa">
+      <div class="proj-icon">🐾</div>
+      <div class="proj-title">Patitas</div>
+      <div class="proj-subtitle es">Plataforma web de adopción animal</div>
+      <div class="proj-subtitle en">Animal adoption web platform</div>
+      <div class="proj-date">2023</div>
+      <div class="proj-desc es">Patitas nació como una iniciativa personal para conectar a personas con perros y gatos en situación de abandono que buscan un hogar. Diseñé y desarrollé una plataforma web intuitiva donde refugios y particulares pueden publicar animales en adopción, con fichas detalladas de cada mascota, filtros por especie, tamaño y zona, y un formulario de contacto directo con el adoptante. El proyecto combinó mi pasión por los animales con mis habilidades en desarrollo web, aplicando HTML5, CSS3 y JavaScript para crear una experiencia amigable y responsiva.</div>
+      <div class="proj-desc en">Patitas was born as a personal initiative to connect people with abandoned dogs and cats looking for a home. I designed and developed an intuitive web platform where shelters and individuals can post animals for adoption, with detailed pet profiles, filters by species, size, and location, and a direct contact form for adopters. The project combined my passion for animals with my web development skills, applying HTML5, CSS3, and JavaScript to create a friendly, responsive experience.</div>
+      <div class="proj-tags">
+        <span class="tag tag-pink">HTML5</span><span class="tag tag-pink">CSS3</span><span class="tag tag-pink">JavaScript</span><span class="tag tag-purple">Diseño UX</span><span class="tag tag-green">Responsive</span>
+      </div>
+    </div>
+
+    <!-- FIXIO CARD -->
+    <div class="proj-card" style="--proj-color1:#00e5ff;--proj-color2:#7c3aed">
+      <div class="proj-icon">🛠️</div>
+      <div class="proj-title">FIXIO</div>
+      <div class="proj-subtitle es">Plataforma de optimización para soporte IT</div>
+      <div class="proj-subtitle en">IT support workflow optimization platform</div>
+      <div class="proj-date es">2024 — En desarrollo</div>
+      <div class="proj-date en">2024 — In development</div>
+      <div class="proj-desc es">Base de datos relacional en SQL/PL-SQL diseñada para centralizar el conocimiento técnico de los equipos de soporte, reducir el MTTR y optimizar el escalamiento de incidentes mediante roles, permisos y lógica de navegación interna.</div>
+      <div class="proj-desc en">Relational database in SQL/PL-SQL designed to centralize technical knowledge for support teams, reduce MTTR, and optimize incident escalation through roles, permissions, and internal navigation logic.</div>
+      <div class="proj-tags">
+        <span class="tag tag-cyan">SQL</span><span class="tag tag-cyan">PL-SQL</span><span class="tag tag-purple">Diseño Relacional</span><span class="tag tag-amber">RBAC Security</span>
+      </div>
+    </div>
+
+    <!-- FIXIO AI BOT -->
+    <div class="proj-card proj-future">
+      <div class="future-badge">🚀 <span class="es">Proyecto Futuro · 2026+</span><span class="en">Future Project · 2026+</span></div>
+      <div class="proj-icon">🤖</div>
+      <div class="proj-title es">FIXIO AI Agent</div>
+      <div class="proj-title en">FIXIO AI Agent</div>
+      <div class="proj-subtitle es">Agente de IA integrado en FIXIO</div>
+      <div class="proj-subtitle en">AI Agent integrated into FIXIO</div>
+      <div class="proj-desc es">Extensión de FIXIO que incorporará un agente de inteligencia artificial capaz de responder consultas técnicas en tiempo real dentro de la plataforma. El bot procesará el historial de incidentes, sugerirá soluciones basadas en casos anteriores y guiará al técnico en el proceso de escalamiento, reduciendo aún más el MTTR y el tiempo de onboarding de nuevos agentes.</div>
+      <div class="proj-desc en">FIXIO extension that will incorporate an AI agent capable of answering technical queries in real time within the platform. The bot will process incident history, suggest solutions based on previous cases, and guide technicians through the escalation process — further reducing MTTR and new agent onboarding time.</div>
+      <div class="proj-tags">
+        <span class="tag tag-amber">AI Agent</span><span class="tag tag-purple">LLM Integration</span><span class="tag tag-cyan">FIXIO</span><span class="tag tag-green">Automatización</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+</div>
+
+<!-- FIXIO DETAIL STAR -->
 <div class="project-section">
 <section id="fixio">
-  <p class="section-tag es">Proyecto estrella</p>
-  <p class="section-tag en">Featured project</p>
-  <h2>FIXIO</h2>
+  <p class="section-tag es">Metodología STAR</p>
+  <p class="section-tag en">STAR Method</p>
+  <h2>FIXIO — Deep Dive</h2>
   <div class="divider"></div>
   <div class="fixio-card">
     <div class="fixio-header">
@@ -320,12 +374,7 @@ body.show-es .en{display:none}
       <h4 class="es">Stack del proyecto</h4>
       <h4 class="en">Project stack</h4>
       <div class="tech-row">
-        <span class="tag tag-cyan">SQL</span>
-        <span class="tag tag-cyan">PL-SQL</span>
-        <span class="tag tag-purple">Diseño Relacional</span>
-        <span class="tag tag-purple">Roles &amp; Permisos</span>
-        <span class="tag tag-green">Lógica de Navegación</span>
-        <span class="tag tag-amber">RBAC Security</span>
+        <span class="tag tag-cyan">SQL</span><span class="tag tag-cyan">PL-SQL</span><span class="tag tag-purple">Diseño Relacional</span><span class="tag tag-purple">Roles &amp; Permisos</span><span class="tag tag-green">Lógica de Navegación</span><span class="tag tag-amber">RBAC Security</span>
       </div>
     </div>
   </div>
@@ -340,7 +389,6 @@ body.show-es .en{display:none}
   <h2 class="es">Experiencia Laboral</h2>
   <h2 class="en">Work Experience</h2>
   <div class="divider"></div>
-
   <div class="exp-card">
     <div class="exp-header">
       <div>
@@ -363,8 +411,8 @@ body.show-es .en{display:none}
       <li class="en">API control and monitoring via Kibana: real-time log analysis for early fault detection before impacting end users.</li>
       <li class="es">Coordinación constante con el GSOC (Global Security Operations Center) para el reporte y escalamiento de eventos de red críticos.</li>
       <li class="en">Ongoing coordination with the GSOC (Global Security Operations Center) for reporting and escalation of critical network events.</li>
-      <li class="es">Implementación de flujos de automatización con Power Automate y Microsoft 365 para reducir tareas manuales repetitivas y acelerar la respuesta ante incidentes.</li>
-      <li class="en">Implemented automation flows with Power Automate and Microsoft 365 to reduce repetitive manual tasks and accelerate incident response.</li>
+      <li class="es">Implementación de flujos de automatización con Power Automate, Power Apps y Microsoft 365 para reducir tareas manuales repetitivas y acelerar la respuesta ante incidentes.</li>
+      <li class="en">Implemented automation flows with Power Automate, Power Apps, and Microsoft 365 to reduce repetitive manual tasks and accelerate incident response.</li>
       <li class="es">Uso estratégico de herramientas de IA (Claude, ChatGPT, Gemini, Copilot) y Vibe Coding para optimizar diagnóstico técnico, documentación y desarrollo de soluciones.</li>
       <li class="en">Strategic use of AI tools (Claude, ChatGPT, Gemini, Copilot) and Vibe Coding to optimize technical diagnostics, documentation, and solution development.</li>
       <li class="es">Desarrollo de aplicaciones con DreamFlow, FlutterFlow, Firebase, Firestore y Cloudflare para automatizar y escalar procesos internos.</li>
@@ -373,7 +421,6 @@ body.show-es .en{display:none}
       <li class="en">Operational data processing with advanced Excel and PL/SQL for KPI generation and management reports.</li>
     </ul>
   </div>
-
   <div class="exp-card">
     <div class="exp-header">
       <div>
@@ -458,6 +505,8 @@ body.show-es .en{display:none}
     <a href="https://www.linkedin.com/in/miqueas-heredia-60b158146/" target="_blank">LinkedIn</a>
     <a href="mailto:mikeasheredia33@gmail.com">mikeasheredia33@gmail.com</a>
     <a href="tel:+543518587200">+54 351 858-7200</a>
+    <a href="MH_cv_actualizado.pdf" download class="cv-download es">⬇ Descargar CV</a>
+    <a href="MH_cv_actualizado.pdf" download class="cv-download en">⬇ Download CV</a>
   </div>
   <p style="margin-top:24px;font-size:10px;color:#444">Built with ♥ · Córdoba 2025 · miqueas-prog.github.io</p>
 </div>
