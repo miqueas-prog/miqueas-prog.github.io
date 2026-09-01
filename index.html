@@ -58,13 +58,51 @@ body.light .lang-btn.active{background:var(--accent);color:#000}
 .cta-btn:hover{background:#00c8e0;transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,229,255,0.3)}
 
 /* LIGHT MODE */
-body.light{--bg:#f8fafc;--bg2:#f1f5f9;--bg3:#e8edf2;--text:#0f172a;--muted:#64748b;--border:#e2e8f0;--card:#ffffff}
-body.light .skill-card,body.light .exp-card,body.light .edu-card,body.light .proj-card,body.light .fixio-card{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+body.light{--bg:#f8fafc;--bg2:#f1f5f9;--bg3:#e8edf2;--text:#0f172a;--muted:#475569;--border:#e2e8f0;--card:#ffffff}
+body.light .hero h1{color:#0f172a}
+body.light .hero h1 .name{color:var(--accent)}
+body.light .hero .role{color:#475569}
+body.light .hero .desc{color:#334155}
+body.light .section-tag{color:var(--accent)}
+body.light h2{color:#0f172a}
+body.light .skill-card h3{color:#0284c7}
+body.light .skill-card,body.light .exp-card,body.light .edu-card,body.light .proj-card,body.light .fixio-card{box-shadow:0 2px 12px rgba(0,0,0,0.08);border-color:#e2e8f0}
 body.light .star-cell{background:#fff}
 body.light .star-cell:hover{background:#f8fafc}
-body.light .fixio-header{background:linear-gradient(135deg,#e8edf5,#dde4ef)}
+body.light .star-letter{opacity:0.5}
+body.light .star-text{color:#334155}
+body.light .star-title{color:#0284c7}
+body.light .fixio-header{background:linear-gradient(135deg,#dde4ef,#e8edf5)}
 body.light .fixio-logo{color:#0f172a}
-body.light .ai-strip{background:linear-gradient(135deg,rgba(124,58,237,0.06),rgba(0,229,255,0.04))}
+body.light .ai-strip{background:linear-gradient(135deg,rgba(124,58,237,0.08),rgba(0,229,255,0.05));border-color:rgba(124,58,237,0.2)}
+body.light .ai-desc{color:rgba(71,85,105,0.8)}
+body.light .exp-role{color:#0f172a}
+body.light .exp-company{color:#0284c7}
+body.light .exp-date{color:#475569;border-color:#e2e8f0}
+body.light .achievements li{color:#334155}
+body.light .achievements li::before{color:#0284c7}
+body.light .edu-title{color:#0f172a}
+body.light .edu-inst{color:#0284c7}
+body.light .meta-item .num{color:var(--accent)}
+body.light .meta-item .lbl{color:#475569}
+body.light .available-badge{border-color:rgba(16,185,129,0.5);background:rgba(16,185,129,0.1)}
+body.light .proj-title{color:#0f172a}
+body.light .proj-desc{color:#334155}
+body.light .proj-subtitle{color:#0284c7}
+body.light .proj-date{color:#64748b}
+body.light .fixio-tech h4{color:#64748b}
+body.light .footer p{color:#475569}
+body.light .footer .contact{color:#0284c7}
+body.light .footer .links a{color:#475569;border-color:#e2e8f0}
+body.light .footer .links a:hover{color:#0284c7;border-color:#0284c7}
+body.light .nav-link{color:#475569}
+body.light .nav-link:hover{color:#0284c7;background:rgba(2,132,199,0.06)}
+body.light .lang-btn{border-color:#e2e8f0;color:#475569}
+body.light .lang-btn.active{background:var(--accent);color:#000}
+body.light .theme-btn{border-color:#e2e8f0;color:#475569}
+body.light .nav-logo-name{color:#0f172a}
+body.light .nav-logo-sub{color:#64748b}
+body.light .divider{opacity:0.8}
 
 @media(max-width:768px){.nav-center{display:none}.nav-logo-info{display:none}.cta-btn span{display:none}}
 
@@ -204,7 +242,7 @@ body.show-es .en{display:none}
 <div class="lang-bar">
   <!-- LOGO -->
   <a href="#" class="nav-logo">
-    <div class="nav-logo-box" style="width:auto;padding:0 10px;font-size:11px;letter-spacing:0.5px">MHTECH</div>
+    <div class="nav-logo-box">MH</div>
     <div class="nav-logo-info">
       <span class="nav-logo-name">MH.TECH</span>
       <span class="nav-logo-sub">Portfolio · 2025</span>
@@ -601,4 +639,3 @@ else{document.getElementById('theme-toggle').textContent='☀️';}
 </script>
 </body>
 </html>
-
