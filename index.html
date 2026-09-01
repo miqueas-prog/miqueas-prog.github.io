@@ -17,13 +17,56 @@
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:var(--font-head);line-height:1.6;overflow-x:hidden}
 
-.lang-bar{position:sticky;top:0;z-index:100;background:rgba(10,10,15,0.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:10px 32px;display:flex;justify-content:space-between;align-items:center}
-.lang-bar .logo{font-family:var(--font-mono);font-size:13px;color:var(--accent);letter-spacing:2px}
-.lang-btns{display:flex;gap:8px;align-items:center}
-.lang-btn{padding:5px 16px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:var(--font-mono);font-size:12px;cursor:pointer;transition:all 0.2s}
-.lang-btn.active{background:var(--accent);color:#000;border-color:var(--accent);font-weight:700}
+.lang-bar{position:sticky;top:0;z-index:100;background:rgba(10,10,15,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 32px;display:flex;justify-content:space-between;align-items:center;height:56px;transition:background 0.3s}
+body.light .lang-bar{background:rgba(245,245,250,0.95);border-bottom-color:#e2e8f0}
+
+/* LOGO */
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.nav-logo-box{width:34px;height:34px;background:var(--accent);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:13px;font-weight:700;color:#000;letter-spacing:-0.5px;flex-shrink:0}
+.nav-logo-info{display:flex;flex-direction:column;line-height:1.1}
+.nav-logo-name{font-family:var(--font-head);font-size:13px;font-weight:700;color:var(--text);letter-spacing:0.3px}
+.nav-logo-sub{font-family:var(--font-mono);font-size:9px;color:var(--muted);letter-spacing:1px;text-transform:uppercase}
+body.light .nav-logo-name{color:#0f172a}
+
+/* NAV LINKS CENTER */
+.nav-center{display:flex;gap:4px;align-items:center;position:absolute;left:50%;transform:translateX(-50%)}
+.nav-link{font-family:var(--font-mono);font-size:11px;color:var(--muted);text-decoration:none;letter-spacing:1px;transition:color 0.2s;text-transform:uppercase;padding:6px 12px;border-radius:6px}
+.nav-link:hover{color:var(--accent);background:rgba(0,229,255,0.06)}
+body.light .nav-link{color:#64748b}
+body.light .nav-link:hover{color:#0284c7;background:rgba(2,132,199,0.06)}
+
+/* NAV RIGHT */
+.nav-right{display:flex;gap:8px;align-items:center}
 .cv-btn-nav{padding:5px 14px;border-radius:20px;border:1px solid rgba(16,185,129,0.4);background:rgba(16,185,129,0.08);color:var(--accent3);font-family:var(--font-mono);font-size:11px;cursor:pointer;transition:all 0.2s;text-decoration:none;display:inline-flex;align-items:center;gap:5px}
 .cv-btn-nav:hover{background:rgba(16,185,129,0.15);border-color:var(--accent3)}
+
+/* THEME TOGGLE */
+.theme-btn{width:32px;height:32px;border-radius:50%;border:1px solid var(--border);background:transparent;color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:14px;transition:all 0.2s}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent);background:rgba(0,229,255,0.06)}
+body.light .theme-btn{border-color:#e2e8f0;color:#64748b}
+body.light .theme-btn:hover{border-color:#0284c7;color:#0284c7}
+
+/* LANG BTNS */
+.lang-btns{display:flex;gap:4px;align-items:center}
+.lang-btn{padding:4px 12px;border-radius:20px;border:1px solid var(--border);background:transparent;color:var(--muted);font-family:var(--font-mono);font-size:11px;cursor:pointer;transition:all 0.2s}
+.lang-btn.active{background:var(--accent);color:#000;border-color:var(--accent);font-weight:700}
+body.light .lang-btn{border-color:#e2e8f0;color:#64748b}
+body.light .lang-btn.active{background:var(--accent);color:#000}
+
+/* CTA */
+.cta-btn{padding:7px 18px;border-radius:8px;background:var(--accent);color:#000;font-family:var(--font-mono);font-size:11px;font-weight:700;text-decoration:none;letter-spacing:0.5px;transition:all 0.2s;display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.cta-btn:hover{background:#00c8e0;transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,229,255,0.3)}
+
+/* LIGHT MODE */
+body.light{--bg:#f8fafc;--bg2:#f1f5f9;--bg3:#e8edf2;--text:#0f172a;--muted:#64748b;--border:#e2e8f0;--card:#ffffff}
+body.light .skill-card,body.light .exp-card,body.light .edu-card,body.light .proj-card,body.light .fixio-card{box-shadow:0 2px 12px rgba(0,0,0,0.06)}
+body.light .star-cell{background:#fff}
+body.light .star-cell:hover{background:#f8fafc}
+body.light .fixio-header{background:linear-gradient(135deg,#e8edf5,#dde4ef)}
+body.light .fixio-logo{color:#0f172a}
+body.light .ai-strip{background:linear-gradient(135deg,rgba(124,58,237,0.06),rgba(0,229,255,0.04))}
+
+@media(max-width:768px){.nav-center{display:none}.nav-logo-info{display:none}.cta-btn span{display:none}}
 
 section{padding:80px 32px;max-width:900px;margin:0 auto}
 .section-tag{font-family:var(--font-mono);font-size:11px;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:12px}
@@ -159,11 +202,37 @@ body.show-es .en{display:none}
 <body class="show-es">
 
 <div class="lang-bar">
-  <div class="logo">MQ.DEV</div>
-  <div class="lang-btns">
+  <!-- LOGO -->
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-box" style="width:auto;padding:0 10px;font-size:11px;letter-spacing:0.5px">MHTECH</div>
+    <div class="nav-logo-info">
+      <span class="nav-logo-name">MH.TECH</span>
+      <span class="nav-logo-sub">Portfolio · 2025</span>
+    </div>
+  </a>
+
+  <!-- NAV CENTER -->
+  <nav class="nav-center">
+    <a href="#skills" class="nav-link es">Skills</a>
+    <a href="#proyectos" class="nav-link es">Proyectos</a>
+    <a href="#experiencia" class="nav-link es">Experiencia</a>
+    <a href="#educacion" class="nav-link es">Educación</a>
+    <a href="#skills" class="nav-link en">Skills</a>
+    <a href="#proyectos" class="nav-link en">Projects</a>
+    <a href="#experiencia" class="nav-link en">Experience</a>
+    <a href="#educacion" class="nav-link en">Education</a>
+  </nav>
+
+  <!-- NAV RIGHT -->
+  <div class="nav-right">
     <a href="CV-MiqueasHeredia.pdf" download class="cv-btn-nav">⬇ CV</a>
-    <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
-    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    <button class="theme-btn" id="theme-toggle" onclick="toggleTheme()" title="Cambiar tema">🌙</button>
+    <div class="lang-btns">
+      <button class="lang-btn active" id="btn-es" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+    </div>
+    <a href="#contacto" class="cta-btn es">Hablemos <span>↗</span></a>
+    <a href="#contacto" class="cta-btn en">Let's talk <span>↗</span></a>
   </div>
 </div>
 
@@ -520,6 +589,16 @@ function setLang(lang){
 }
 var saved=localStorage.getItem('portfolio-lang');
 if(saved) setLang(saved); else setLang('es');
+
+function toggleTheme(){
+  const isLight=document.body.classList.toggle('light');
+  document.getElementById('theme-toggle').textContent=isLight?'🌙':'☀️';
+  localStorage.setItem('portfolio-theme',isLight?'light':'dark');
+}
+var savedTheme=localStorage.getItem('portfolio-theme');
+if(savedTheme==='light'){document.body.classList.add('light');document.getElementById('theme-toggle').textContent='🌙';}
+else{document.getElementById('theme-toggle').textContent='☀️';}
 </script>
 </body>
 </html>
+
